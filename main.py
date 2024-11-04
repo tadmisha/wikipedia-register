@@ -71,7 +71,6 @@ def register(browser, username, password, url):
     browser.get(url)
 
     username_input = browser.find_element(By.XPATH, '//input[@id="wpName2"]')
-    username_input.send_keys(username)
     password_input_1 = browser.find_element(By.XPATH, '//input[@id="wpPassword2"]')
     password_input_2 = browser.find_element(By.XPATH, '//input[@id="wpRetype"]')
     captcha_input = browser.find_element(By.XPATH, '//input[@id="mw-input-captchaWord"]')
@@ -82,6 +81,8 @@ def register(browser, username, password, url):
     captcha_text = read_text(img)
     print(captcha_text)
 
+
+    username_input.send_keys(username)
     password_input_1.send_keys(password)
     password_input_2.send_keys(password)
     captcha_input.send_keys(captcha_text)
